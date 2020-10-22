@@ -1,0 +1,36 @@
+<h3>Encuestar: </h3>
+<div [hidden]="submitted" style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="mail">Mail Cliente</label>
+      <input type="text" class="form-control" id="mail" required [(ngModel)]="customer.mail" name="mail">
+    </div>
+
+    <div class="form-group">
+      <label for="preferencia">Coca-Cola Peferida</label>
+
+      <select class="form-control" name="miselect" [(ngModel)]=customer.preferencia>
+        <option [value]="item" *ngFor="let item of lista"  >  {{item}}  </option>
+      </select>
+
+    </div>
+
+    <div class="form-group">
+      <label for="age">Edad</label>
+      <input type="text" class="form-control" id="age" required [(ngModel)]="customer.age" name="age">
+    </div>
+
+
+
+
+
+
+    <button type="submit" class="btn btn-success">Registrar</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Cliente Registrado Exitosamente!</h4>
+  <button class="btn btn-success" (click)="newCustomer()">Nuevo Registro</button>
+</div>
